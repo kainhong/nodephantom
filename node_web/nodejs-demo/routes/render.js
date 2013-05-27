@@ -15,9 +15,7 @@ page.open(url,function(){
 
 var mongoose = require('mongoose');
 
-var Schema = mongoose.Schema;
-
-var SiteSchema = new Schema({
+var SiteSchema = new mongoose.Schema({
     SiteID: { type: Number, required: false },
     SiteUrl: { type: String, required: false }
 });
@@ -27,13 +25,13 @@ var SiteModel = mongoose.model('Site', SiteSchema);
 
 
 exports.list = function(req, res){
-    var Site;
+    var Site1;
     console.log("POST: ");
     console.log(req.body);
-    Site = new SiteModel({
+    Site1 = new SiteModel({
         SiteUrl: req.body.site_url
     });
-    Site.save(function (err) {
+    Site1.save(function (err) {
         if (!err) {
             return console.log("created");
         } else {
@@ -41,6 +39,19 @@ exports.list = function(req, res){
         }
     });
 
-    res.render('render', { title: req.body.site_url });
+
+    SiteModel.find( function (err, Sites) {
+            if (!err) {
+
+                res.render('render', { title: req.body.site_url, sitedata:Sites });
+                return ;
+            } else {
+                res.render('render', { title: '出错了', sitedata:{} });
+                return console.log(err);
+            }
+        });
+
+
+
 };
 
