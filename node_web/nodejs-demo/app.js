@@ -7,9 +7,12 @@ var express = require('express')
   , routes = require('./routes/index')
   , user = require('./routes/user')
   , render = require('./routes/render')
-  , ejs = require('ejs');
+  , ejs = require('ejs')
+  , mongoose = require( 'mongoose' )  ;
 
-var mongoose = require( 'mongoose' );
+mongoose.connect('mongodb://localhost/touzi101');
+
+
 
 var app = module.exports = express();
 
