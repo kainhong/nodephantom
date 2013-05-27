@@ -13,5 +13,7 @@ page.open(url,function(){
 );
 */
 exports.list = function(req, res){
-  res.send("respond with a resource");
+    console.log( req.body.site_url);
+    res.render('render', { title: req.body.site_url });
 };
+

@@ -2,14 +2,15 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/css/style.css' />
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+
     <form accept-charset="UTF-8" id="invcn-form" method="post" action="/render" enctype="multipart/form-data" class="website-form" autocomplete="off" >
-	    <lable for='edit-title'>Url:</br></label>
-    	<input type="text" class="form-text required" maxlength="255" size="60" value="" name="url_fill" id="edit-title" _value="">
+	    <label for='edit-title'>Pls Input Url you want Capture:</label>
+
+    	<input type="text" class="form-text required" maxlength="255" size="60" value="" name="site_url" id="edit-title" _value="">
     	<div><p>Fill the form with correctly url, which is you want to screenshot</p></div>
     	<input type='submit' class='form-submit' id='edit-submit' value='Render' >
     </form>
