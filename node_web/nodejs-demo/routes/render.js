@@ -42,9 +42,8 @@ exports.list = function(req, res){
 
     SiteModel.find( function (err, Sites) {
             if (!err) {
-
                 res.render('render', { title: req.body.site_url, sitedata:Sites });
-                return ;
+                return console.log(req.body.site_url);
             } else {
                 res.render('render', { title: '出错了', sitedata:{} });
                 return console.log(err);

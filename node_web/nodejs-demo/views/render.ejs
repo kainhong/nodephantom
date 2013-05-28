@@ -12,7 +12,15 @@
     	<div><p>  <%= title %> </p></div>
 
         <ul>
-            <%= sitedata =%>
+            <% sitedata.forEach(function(site){ %>
+            <li>SiteUrl : <%= site.SiteUrl %></li>
+            <% }) %>
+        </ul>
+
+        <ul>
+            <% for (var i=0; i < sitedata.length; i++) { %>
+            <li><%= sitedata[i] %></li>
+            <% } %>
         </ul>
 
     </form>
