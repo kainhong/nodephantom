@@ -1,16 +1,63 @@
 // file name: phantomTest.js
-var phantom = require('node-phantom');
+/*var phantom = require('node-phantom');
 console.log('file:test-node-phantomjs.js');
 phantom.create(function(err, ph) {
 	console.log('file:test-node-phantomjs.js');
     return ph.createPage(function(err, page) {
-        page.open('http://www.google.com', function(status) {
-            console.log('opened google?', status);
-            var title = page.evaluate(function() {
+        return page.open('http://www.google.com/', function(err, status) {
+            console.log('opened touzi101?', status);
+            page.includeJs('../jquery-1.4.2.min.js', function() {*/
+                /* jQuery is loaded, now manipulate the DOM */
+/*                var title = page.evaluate(function() {
+                    var title = $("title").text();
+                    console.log('page title is ' + title); 
+                });
+                  
+            });*/
+            
+            //page.render('dd.png');
+            /*var title = page.evaluate(function(s) {
                 return document.title;
             });
-            console.log('page title is ' + title);              
-        });
+            console.log('page title is ' + title);  */            
+     /*   });
     });
     ph.exit();
+});*/
+///////////////////////////////////////////////////////////////////////////////
+var phantom=require('node-phantom');
+phantom.create(function(err,ph) {
+  return ph.createPage(function(err,page) {
+    return page.open("http://tilomitra.com/repository/screenscrape/ajax.html", function(err,status) {
+      console.log("opened site? ", status);
+      page.includeJs('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', function(err) {
+        //jQuery Loaded.
+        //Wait for a bit for AJAX content to load on the page. Here, we are waiting 5 seconds.
+        setTimeout(function() {
+          return page.evaluate(function() {
+            //Get what you want from the page using jQuery. A good way is to populate an object with all the jQuery commands that you need and then return the object.
+            var h2Arr = [],
+            pArr = [];
+            var title = []
+            title.push($('title').html());
+            $('h2').each(function() {
+              h2Arr.push($(this).html());
+            });
+            $('p').each(function() {
+              pArr.push($(this).html());
+            });
+
+            return {
+              h2: h2Arr,
+              p: pArr,
+              title: title
+            };
+          }, function(err,result) {
+            console.log(result);
+            ph.exit();
+          });
+        }, 5000);
+      });
+    });
+  });
 });

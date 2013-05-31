@@ -1,31 +1,13 @@
-/*var imgsavepath = "../touzi101/";
-var website = [
-	{"pagename":"homepage-homepage", "url":"http://www.touzi101.cn/", "title":"", "keyword":"", "description":"", "h1":"", "h2":"", "status":"", "filename":""},
-];
-var RenderUrlIsToFile, system;
-system = require("system");
-webpage = requier("webpage");
-page = webpage.create();
-url = 'http://www.touzi101.cn/';
-page.open(url,function(){
-            page.render('First-screenshot.png');
-    }
-);
-*/
-
 var mongoose = require('mongoose');
-
 var SiteSchema = new mongoose.Schema({
     SiteID: { type: Number, required: false },
     SiteUrl: { type: String, required: false }
 });
 var SiteModel = mongoose.model('Site', SiteSchema);
-//var childProcess = requier('child_process');
 var phantom = require('node-phantom');
-
 exports.list = function(req, res){
     var Site1;
-    console.log("POST: ");
+    console.log("POST:");
     console.log(req.body);
     Site1 = new SiteModel({
         SiteUrl: req.body.site_url
@@ -38,19 +20,29 @@ exports.list = function(req, res){
         }
     });
     console.log('chulai ');
-	phantom.create(function(err, ph) {
-		console.log('file:test-node-phantomjs.js');
-	    return ph.createPage(function(err, page) {
-	        page.open('http://www.google.com', function(status) {
-	            console.log('opened google?', status);
-	            var title = page.evaluate(function() {
-	                return document.title;
-	            });
-	            console.log('page title is ' + title);              
-	        });
-	    });
-	    ph.exit();
-	});
+// file name: phantomTest.js
+    console.log('file:test-node-phantomjs.js');
+    phantom.create(function(err, ph) {
+        console.log('file:test-node-phantomjs.js');
+        return ph.createPage(function(err, page) {
+            return page.open(req.body.site_url, function(err, status) {
+                console.log('opened '+req.body.site_url+'?', status);
+                //page.render('dd.png');
+                page.includeJs('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', function() {
+                    setTimeout(function(){
+                        return page.evaluate(function(){
+                            var title;
+                            title = $('title').html();
+                                return title
+                        },function(err, result){
+                            console.log(result);
+                        });
+                    },5000);
+                });
+            });
+        });
+        ph.exit();
+    });
 	console.log('chulai------- ');
     SiteModel.find( function (err, Sites) {
             if (!err) {
