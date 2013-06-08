@@ -42,10 +42,12 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-console.log('dirname :'+__dirname);
+//console.log('dirname :'+__dirname);
 app.get('/', routes.index);
 app.post('/render', render.list);
+//app.post('/', routes.list);
 app.get('/users', user.list);
+app.get('/fetchdata',render.fetchdata);
 app.get('/node-phantom', function(request, response){
 	var script = path.join(__dirname, '/open-url.js');
 	var childArgs = [
@@ -60,6 +62,5 @@ app.get('/node-phantom', function(request, response){
 	});
 });
 
-
-app.listen(3000);
-console.log('Listening on port 3000');
+app.listen(3001);
+console.log('Listening on port 3001');

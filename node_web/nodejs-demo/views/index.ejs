@@ -1,18 +1,66 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/css/style.css' />
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+    <script type="text/javascript">
+
+
+        $.ajax({
+          type: "GET",
+          dataType: "json",
+          url: "/fetchdata",
+        }).done(function(data) {
+              var addtext = '';
+              for (var i=0; i < data.sitedata.length; i++) {
+                  addtext = addtext + '<ol>site url: ' + data.sitedata[i].SiteUrl +'</ol>'
+              }
+              $('#history').html(addtext);
+           });
+
+
+        function submitForm(){
+            var url = fetchUrl();
+            $.ajax({
+                 type: "POST",
+                 dataType: "json",
+                 url: "/render",
+                 data:{'fetchUrl': url},
+                 success:function(result){
+                     $('#edit-title').val('');
+                     var json = JSON.stringify(result);
+                     console.log('success result value:' + JSON.stringify(result));
+                     var olddata = $('#history').html();
+                     $('#history').html(olddata + '<ol> site url: ' + result.SiteUrl + '</ol>');
+
+                 },
+                 error:function(xhr){
+                     //alert("An error occured: " + xhr.status + " " + xhr.statusText);
+                     alert("sorry dude, please fill the box ~");
+                 }
+            });
+        }
+
+
+        function fetchUrl(){
+          var inputUrl = '';
+          return inputUrl = $('#edit-title').val();
+        }
+//      $(document).ready(function(){});
+// <form accept-charset="UTF-8" id="invcn-form" method="POST" enctype="multipart/form-data" class="website-form" autocomplete="off" > </form>
+    </script>
   </head>
+
+
   <body>
     <h1><%= title %></h1>
-
-    <form accept-charset="UTF-8" id="invcn-form" method="post" action="/render" enctype="multipart/form-data" class="website-form" autocomplete="off" >
-	    <label for='edit-title'>Pls Input Url you want Capture:</label>
-
-    	<input type="text" class="form-text required" maxlength="255" size="60" value="" name="site_url" id="edit-title" _value="">
-    	<div><p>Fill the form with correctly url, which is you want to screenshot</p></div>
-    	<input type='submit' class='form-submit' id='edit-submit' value='Render' >
-    </form>
+        <label for='edit-title'>Pls Input Url you want Capture:</label>
+        <input type="text" class="form-text required" maxlength="255" size="60" value="" name="site_url" id="edit-title" _value="">
+        <div><p>Fill the form with correctly url, which is you want to screenshot</p></div>
+    	<input type='submit' class='form-submit' id='edit-submit' onclick = 'submitForm()' value='Render'>
+    <br/>
+    <div class = 'table'>I'm a table</div>
+    <div id = "history"></div>
   </body>
-</html>
+ </html>  
