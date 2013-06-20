@@ -13,7 +13,7 @@ exports.list = function(req, res){
     var Site1;
     Site1 = new SiteModel({
         SiteUrl: req.body.fetchUrl,
-        SiteScreenshotFileName: imagename
+        SiteScreenshotFileName: './touzi101/godddggle.png'
     });
     console.log("POST(render.js):");
     console.log('req.body: '+ req.body.fetchUrl);
@@ -25,7 +25,7 @@ exports.list = function(req, res){
                 ph.createPage(function(err, page) {
                     page.open(req.body.fetchUrl, function(err, status) {
                         console.log('opened '+ req.body.fetchUrl +'?', status);
-                        //page.render('./touzi101/godddggle.png');
+                        page.render('./touzi101/godddggle.png');
                         Site1.SiteScreenshotFileName = 'godddggle.png';
                         page.includeJs('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', function() {
                             
