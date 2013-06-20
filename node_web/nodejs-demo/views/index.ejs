@@ -13,8 +13,11 @@
           url: "/fetchdata",
         }).done(function(data) {
               var addtext = '';
+              var image = '';
+              console.log('success loop value:' + JSON.stringify(data));
               for (var i=0; i < data.sitedata.length; i++) {
-                  addtext = addtext + '<ol>site url: ' + data.sitedata[i].SiteUrl +'</ol>'
+                image = '<img src="'+ data.sitedata[i].SiteScreenshotFileName + ' " class="image-size"/>'
+                addtext = addtext + '<ol>site url: ' + data.sitedata[i].SiteUrl +'</ol>' + image;
               }
               $('#history').html(addtext);
            });
@@ -32,7 +35,8 @@
                      var json = JSON.stringify(result);
                      console.log('success result value:' + JSON.stringify(result));
                      var olddata = $('#history').html();
-                     $('#history').html(olddata + '<ol> site url: ' + result.SiteUrl + '</ol>');
+                     var image = '<img src="./'+ result.SiteScreenshotFileName +'" class="image-size" >'
+                     $('#history').html(olddata + '<ol> site url: ' + result.SiteUrl + '</ol>'+ image );
 
                  },
                  error:function(xhr){
@@ -42,7 +46,19 @@
             });
         }
 
-
+        function ClearAllDatabase(){
+          $.ajax({
+                 type: "POST",
+                 url: "/cleardatabase",
+                 success:function(result){
+                     $('#history').html(' ');
+                 },
+                 error:function(xhr){
+                     //alert("An error occured: " + xhr.status + " " + xhr.statusText);
+                     alert("sorry~, there is an error~");
+                 }
+            });
+        }
         function fetchUrl(){
           var inputUrl = '';
           return inputUrl = $('#edit-title').val();
@@ -60,7 +76,7 @@
         <div><p>Fill the form with correctly url, which is you want to screenshot</p></div>
     	<input type='submit' class='form-submit' id='edit-submit' onclick = 'submitForm()' value='Render'>
     <br/>
-    <div class = 'table'>I'm a table</div>
+    <div class = 'table'>Datas of Database: <input type='submit' class='form-submit' id='clear-submit' onclick = 'ClearAllDatabase()' value='ClearDatabase'></div>
     <div id = "history"></div>
   </body>
  </html>  
