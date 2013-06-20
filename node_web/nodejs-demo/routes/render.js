@@ -1,5 +1,5 @@
 //path = require('path');
-var moment = require('moment');
+//var moment = require('moment');
 var mongoose = require('mongoose');
 var SiteSchema = new mongoose.Schema({
     SiteID: { type: Number, required: false },
@@ -9,7 +9,6 @@ var SiteSchema = new mongoose.Schema({
 });
 var SiteModel = mongoose.model('Site', SiteSchema);
 var phantom = require('node-phantom');
-var date = date()
 exports.list = function(req, res){
     var Site1;
     Site1 = new SiteModel({
