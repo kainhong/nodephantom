@@ -45,8 +45,13 @@ if ('development' == app.get('env')) {
 //console.log('dirname :'+__dirname);
 app.get('/', routes.index);
 app.post('/render', render.list);
+app.post('/cleardatabase', render.cleandatas);
 //app.post('/', routes.list);
 app.get('/users', user.list);
+app.get('/screenshot', function(req, res) {
+    var imagepath = path.join('./touzi101','godddggle.png');
+    res.send('<img src="' + imagepath + '"/>');
+});
 app.get('/fetchdata',render.fetchdata);
 app.get('/node-phantom', function(request, response){
 	var script = path.join(__dirname, '/open-url.js');

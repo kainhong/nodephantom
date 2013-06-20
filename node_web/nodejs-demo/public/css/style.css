@@ -8,3 +8,7 @@ body {
 a {
   color: #00B7FF;
 }
+img.image-size {
+  height: 223px;
+  width: 312px;
+}
