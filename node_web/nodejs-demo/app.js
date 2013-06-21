@@ -13,24 +13,17 @@ var childProcess = require('child_process');
 var path = require('path');
 var phantomjs = require('phantomjs');
 var binPath = phantomjs.path;
-
-
-mongoose.connect('mongodb://localhost/touzi101');
-
-
-
 var app = module.exports = express();
-
+mongoose.connect('mongodb://localhost/touzi101');
+var listenport = '3001';
 // all environments
 
 app.engine('.html', ejs.__express);
 app.set('views', __dirname + '/views');
-//app.set('view engine', 'html');
 app.set('view engine', 'ejs');
 
 app.use(express.favicon());
 app.use(express.logger('dev'));      // log requests
-
 app.use(express.cookieParser());
 app.use(express.bodyParser());
 app.use(express.methodOverride());
@@ -42,11 +35,9 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-//console.log('dirname :'+__dirname);
 app.get('/', routes.index);
 app.post('/render', render.list);
 app.post('/cleardatabase', render.cleandatas);
-//app.post('/', routes.list);
 app.get('/users', user.list);
 app.get('/screenshot', function(req, res) {
     var imagepath = path.join('./touzi101','godddggle.png');
@@ -67,5 +58,5 @@ app.get('/node-phantom', function(request, response){
 	});
 });
 
-app.listen(3001);
-console.log('Listening on port 3001');
+app.listen(listenport);
+console.log('Listening on port ' + listenport);

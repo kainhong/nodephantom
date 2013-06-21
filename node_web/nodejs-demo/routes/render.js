@@ -10,6 +10,8 @@ var SiteSchema = new mongoose.Schema({
 var SiteModel = mongoose.model('Site', SiteSchema);
 var phantom = require('node-phantom');
 var random = Math.floor(Math.random()*100 + 1);
+
+
 exports.list = function(req, res){
     var today = moment().format('YYYYMMDD-HH-mm-ss');
     var imagename = today + '.png';
@@ -74,6 +76,8 @@ exports.list = function(req, res){
         });
     }
 };
+
+
 exports.fetchdata = function(req, res){
     //res.send('mmmmmmmmmmmmmmmmmmd');
     //return console.log('title');
@@ -87,6 +91,8 @@ exports.fetchdata = function(req, res){
         }
     });
 };
+
+
 exports.cleandatas = function(req, res){
     SiteModel.find().remove();
     res.send(200);
