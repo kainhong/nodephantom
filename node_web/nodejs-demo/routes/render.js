@@ -1,5 +1,5 @@
 //path = require('path');
-//var moment = require('moment');
+var moment = require('moment');
 var mongoose = require('mongoose');
 var SiteSchema = new mongoose.Schema({
     SiteID: { type: Number, required: false },
@@ -9,11 +9,14 @@ var SiteSchema = new mongoose.Schema({
 });
 var SiteModel = mongoose.model('Site', SiteSchema);
 var phantom = require('node-phantom');
+var random = Math.floor(Math.random()*100 + 1);
 exports.list = function(req, res){
+    var today = moment().format('YYYYMMDD-HH-mm-ss');
+    var imagename = today + '.png';
     var Site1;
     Site1 = new SiteModel({
         SiteUrl: req.body.fetchUrl,
-        SiteScreenshotFileName: imagename
+        SiteScreenshotFileName: './touzi101/'+imagename
     });
     console.log("POST(render.js):");
     console.log('req.body: '+ req.body.fetchUrl);
@@ -25,8 +28,8 @@ exports.list = function(req, res){
                 ph.createPage(function(err, page) {
                     page.open(req.body.fetchUrl, function(err, status) {
                         console.log('opened '+ req.body.fetchUrl +'?', status);
-                        //page.render('./touzi101/godddggle.png');
-                        Site1.SiteScreenshotFileName = 'godddggle.png';
+                        page.render('./public/touzi101/' + imagename);
+                        Site1.SiteScreenshotFileName = imagename;
                         page.includeJs('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', function() {
                             
                                 Site1 = page.evaluate(function(pagesource){

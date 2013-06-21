@@ -12,3 +12,7 @@ img.image-size {
   height: 223px;
   width: 312px;
 }
+div.img{
+	margin: 40px;
+	float: left;
+}
