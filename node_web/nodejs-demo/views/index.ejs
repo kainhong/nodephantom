@@ -17,7 +17,7 @@
               console.log('success loop value:' + JSON.stringify(data));
               for (var i=0; i < data.sitedata.length; i++) {
                 image = '<img src="'+ data.sitedata[i].SiteScreenshotFileName + ' " class="image-size"/>'
-                addtext = addtext + '<ol>site url: ' + data.sitedata[i].SiteUrl +'</ol>' + image;
+                addtext = addtext + '<div class="img"><ol>' + (i+1) + '--SiteUrl: ' + data.sitedata[i].SiteUrl +'</ol>' + image + '</div>';
               }
               $('#history').html(addtext);
            });
