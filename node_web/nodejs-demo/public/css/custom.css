@@ -1,0 +1,24 @@
+
+body {
+    padding-top: 40px;
+    position: relative;
+    color: #333333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+}
+h3 code {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+
+.bs-docs-sidebar {
+    background-color: #FFFFFF;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    margin: 30px 0 0;
+    padding: 0;
+    width: 228px;
+}
+
