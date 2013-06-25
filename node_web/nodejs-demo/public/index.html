@@ -43,8 +43,8 @@
             <div class="nav-collapse collapse">
 
                 <ul class="nav">
-                    <li class=""><a href="">Home</a></li>
-                    <li class="active"><a href="">Site</a></li>
+                    <li class=""><a href="/index.html">Home</a></li>
+                    <li class="active"><a href="/index.html">Site</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
 
@@ -120,6 +120,7 @@
                             <th>Site Name</th>
                             <th>Site Description</th>
                             <th>Management</th>
+                            <th>Capture</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -131,6 +132,10 @@
                                 <button class="btn">Modify</button>
                                 <button class="btn">Delete</button>
                                 <button class="btn" ng-click="managePageList(site)">Manage Pages</button>
+                            </td>
+                            <td>
+                                <button class="btn btn-warning">Start Capture</button>
+                                <button class="btn btn-success">Capture Success</button>
                             </td>
                         </tr>
                     </tbody>
