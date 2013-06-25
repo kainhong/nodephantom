@@ -84,6 +84,7 @@
                 <div class="pull-right"><a href="" class="btn btn-primary" ng-click="showaddsitebox()">New Site</a></div>
             </div>
 
+
             <div class="row-fluid rightnewitem" ng-show="cssnewsite">
 
                 <div class="span8 form-horizontal">
@@ -180,7 +181,7 @@
             </div>
 
 
-            <div class="row-fluid">
+            <div class="row-fluid rightlist">
                 <table class="table table-bordered">
                     <thead>
                     <tr>
@@ -198,7 +199,12 @@
                             <td>{{page.pagename}}</td>
                             <td>{{page.pagetitle}}</td>
                             <td>{{page.pageurl}}</td>
-                            <td><button class=" btn btn-info">See Screenshot</button></td>
+                            <td>
+                                <div class="defaultpic">
+                                <a href="{{page.screenshotpath}}"><img src="{{page.screenshotpath}}" class="img-circle smallpic"></a>
+                                    <span class="hoverpic"><img src="{{page.screenshotpath}}"></span>
+                                </div>
+                            </td>
                             <td>
                                 <button class="btn">Modify</button>
                                 <button class="btn">Delete</button>

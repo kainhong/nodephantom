@@ -17,7 +17,7 @@ phantomapp.factory('modelSite', function(){
             sitename : 'Touzi101',
             sitedecription : "网站很不错",
             pagelist : [
-                {pageid:10001, pagename:'Homepage',  pagetitle:"Ch2", pageurl:"http://www.touzi101.cn/", screenshotpath:"/1.png" }
+                {pageid:10001, pagename:'Homepage',  pagetitle:"Ch2", pageurl:"http://www.touzi101.cn/", screenshotpath:"/screenshot/touzi101/20130621-14-37-39.png" }
             ]
         }
 
