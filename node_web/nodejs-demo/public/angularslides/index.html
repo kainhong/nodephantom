@@ -165,7 +165,7 @@
 
                 <section>
                     <h2>Angular's Other Feature</h2>
-                    <p>jqLite</p>
+                    <p>内置了类似jQueryLite</p>
                     <p>Validation</p>
                     <p>Filters</p>
                     <p>
@@ -177,18 +177,103 @@
 
                 <section>
                     <section>
-                        <h2>Angular's 3D</h2>
-                        <p>
-                            Date Binding 数据绑定
-                        </p>
-                        <p>
-                            Download Angular <a href="http://angularjs.org/">官方 1.1.5</a>
-                        </p>
-                        <p>
-                              <a href="http://angularjs.org/">Demo1  数据绑定</a>
-                        </p>
+                        <h2>Angular's 3D </h2>
+                        <h3>Date Binding 数据绑定</h3>
+                        <ul>
+                            <li>Let's Start. Download Angular <a href="http://angularjs.org/">官方 1.1.5</a></li>
+                            <li><a href="demo/demo1.html">Demo1  数据绑定</a></li>
+                            <li><a href="https://github.com/angular/angularjs-batarang">AngularJS WebInspector Extension for Chrome</a>  <a href="http://www.youtube.com/embed/q-7mhcHXSfM">视频</a> </li>
+                            <li><a href="http://learning.github.io/underscore/">underscore</a></li>
+                        </ul>
+
+
+
                     </section>
+
+                    <section>
+                        <h2>Angular's 3D</h2>
+                        <h3>Directive 指令与自定义指令</h3>
+
+                        <p>
+                            AngularJS有一套完整的、可扩展的、用来帮助web应用开发的指令集，
+                        </p>
+                        <p>
+                            它使得HTML可以转变成“特定领域语言(DSL)<a href="http://book.douban.com/review/4926318/"> Domain-Specific Language。</a>
+                        </p>
+                        <p>
+                            <a href="http://docs.angularjs.org/guide/directive"> 英文文档</a>  <a href="http://www.angularjs.cn/A00r"> 中文文档</a>
+                        </p>
+
+                    </section>
+
+                    <section>
+                        <h2>Angular's Directive 指令</h2>
+                        <p>
+                            “x-”，“data-”来让它符合html的验证规则。这里有以下可以用的指令名称例子：ng:bind, ng-bind, ng_bind, x-ng-bind , data-ng-bind
+                        </p>
+                        <p>
+                            指令可以做为元素名，属性名，类名，或者注释。下面是一些等效调用myDir指令的例子：
+                        </p>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+                                <div>
+                                <span my-dir="exp"></span>
+                                <span class="my-dir: exp;"></span>
+                                <my-dir></my-dir>
+                                <!-- directive: my-dir exp -->
+                                </div>
+                        </code></pre>
+
+                    </section>
+
+                    <section>
+                        <h2>Angular's 3D Directive 指令</h2>
+                        <p>
+                            Angular 表达式 <a href="http://stackoverflow.com/questions/7792652/what-is-the-best-way-to-conditionally-apply-a-class-with-angularjs"> expression </a>
+                        </p>
+                        <p>
+                            常用指令 : ngapp  ngController   ngClick  ngCloak ngClass ngRepeat
+                        </p>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+                        <div>
+                            <li ng-class="selected"  ng-repeat="item in list">
+                                {{item.name}}
+                            </li>
+                            <li class="ng-class:item.isSelected"  ng-repeat="item in list">
+                                {{item.name}}
+                            </li>
+                            <li ng-class="{selected: $index==selectedIndex}" ng-repeat="item in list">
+                                {{item.name}}
+                            </li>
+                            <li ng-class="{selected: $index==selectedIndex, classname:true == varname}" ng-repeat="item in list">
+                                {{item.name}}
+                            </li>
+                        </div>
+                        </code></pre>
+
+                    </section>
+
+                    <section>
+                        <h2><a href="http://stackoverflow.com/questions/7792652/what-is-the-best-way-to-conditionally-apply-a-class-with-angularjs"> ngClass  表达式 </a> </h2>
+                        <ol>
+                            <li>a string of space-delimited class names, 单一样式名称</li>
+                            <li>an array of class names 样式名称数组</li>
+                            <li>a map/object of class names to boolean values.  对象,应用多个样式</li>
+                        </ol>
+                    </section>
+
+                    <section>
+                        <h2><a href="http://docs.angularjs.org/api/ng.directive:ngRepeat"> ngRepeat  表达式 </a> </h2>
+                        <ol>
+                            <li>$index – {number} – iterator offset of the repeated element (0..length-1)</li>
+                            <li>$first – {boolean} – true if the repeated element is first in the iterator.</li>
+                            <li>$last – {boolean} – true if the repeated element is last in the iterator.</li>
+                            <li>$middle – {boolean} – true if the repeated element is between the first and last in the iterator.</li>
+                        </ol>
+
+                    </section>
+
                 </section>
+
 				<section>
 					<h2>Works in Mobile Safari</h2>
 					<p>

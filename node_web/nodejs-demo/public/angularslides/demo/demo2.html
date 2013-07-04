@@ -13,6 +13,9 @@
         body {
             padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
         }
+        .selected{
+            color:red;
+        }
     </style>
     <link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -33,7 +36,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="#">Project name</a>
+            <a class="brand" href="#">Angular Demo2</a>
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     <li class="active"><a href="#">Home</a></li>
@@ -50,7 +53,10 @@
     <label>Name:</label>
     <input type="text" ng-model="yourName" placeholder="Enter a name here">
     <hr>
-    <h1>Hello {{yourName}}!</h1>
+    <h1 ng-class="selected">Hello {{yourName}}!</h1>
+    <h1 ng-class="selected">Hello {{yourName}}!</h1>
+    <h2 ng-class="selected: true == cssSelected">Hello {{yourName}}!</h2>
+    <button class="btn-large" ng-click="cssSelected = !cssSelected">修改样式</button>
 
 </div> <!-- /container -->
 
