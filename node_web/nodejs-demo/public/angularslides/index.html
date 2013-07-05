@@ -52,7 +52,7 @@
                     </p>
 
                     <aside class="notes">
-                        SPA  Single Page Application
+                        SPA  Single Page Application   (hit 's' on your keyboard).
                     </aside>
 				</section>
 
@@ -69,6 +69,7 @@
                     <aside class="notes">
 						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
                         有多少人知道angular?  多少人在用angular ?
+                        Alt + click anywhere to zoom back out.
 					</aside>
 				</section>
 
@@ -82,16 +83,21 @@
 						<p>而且是通常是 后端语言 渲染HTML模板 </p><br/>
                         <p>例如 CodeIgniter MVC 的View模板  </p>
 
-						<a href="#" class="image navigate-down">
+						<a href="http://www.youtube.com/watch?v=HCR7i5F5L8c" class="image navigate-down">
 							<img width="40" height="40" src="./resource/arrow.png" alt="Down arrow">
 						</a>
-					</section>
+
+                    </section>
 
 					<section>
 						<h2>Angular 设计原则</h2>
                         <a href="http://www.youtube.com/watch?v=HCR7i5F5L8c" class="image navigate-down">
                             <img  src="./resource/designprinciples.png" alt="Design Principles">
                         </a>
+                        <a href="http://www.youtube.com/watch?v=HCR7i5F5L8c" >Google I/O 2013 - Design Decisions in AngularJS</a>
+                        <a href="http://v.youku.com/v_show/id_XNTY1NzcwMDg0.html" >优酷</a>
+                        <a href="http://www.youtube.com/watch?v=ZhfUv0spHCY" >AngularJS Best Practices (2012/12/11)</a>
+
                         <aside class="notes">
                             真正为设计师和开发者根据实际操作服务的框架, 可以让设计师完全脱离js , 仅仅在html中添加一些标签就可以实现交互
                         </aside>
@@ -187,27 +193,28 @@
                         <h2>Angular's 3D </h2>
                         <h3>Data Binding 数据绑定</h3>
                         <ul>
-                            <li>Let's Start. Download Angular <a href="http://angularjs.org/">官方 1.1.5</a></li>
+                            <li>Let's Start. <a href="http://angularjs.org/">官方1.0.7  1.1.5</a></li>
+                            <li>Angular min 87k 未压缩版本是577k</li>
                             <li><a href="demo/demo1.html">Demo1  数据绑定</a></li>
                             <li><a href="https://github.com/angular/angularjs-batarang">AngularJS WebInspector Extension for Chrome</a>  <a href="http://www.youtube.com/embed/q-7mhcHXSfM">视频</a> </li>
+                            <li><a href="http://stackoverflow.com/questions/3102819/chrome-disable-same-origin-policy">关闭chrome的跨域安全限制. same origin policy</a></li>
                             <li><a href="http://learning.github.io/underscore/">underscore</a></li>
                         </ul>
                     </section>
                     <section>
                         <h2>Data Binding 数据绑定 双向绑定 </h2>
                         <ul>
-                            <li><a href="http://docs.angularjs.org/guide/dev_guide.templates.databinding">单向与双向绑定</a> </li>
-                            <li><a href="http://www.angularjs.cn/A00H">中文文档</a></li>
+                            <p><a href="http://docs.angularjs.org/guide/dev_guide.templates.databinding">单向与双向绑定</a> </p>
+                            <p><a href="http://www.angularjs.cn/A00H">中文文档</a></p>
+                            <img  src="./resource/Two_Way_Data_Binding.png" alt="Unicorn">
                         </ul>
-
                     </section>
 
                     <section>
                         <h2>Angular's 3D</h2>
                         <h3>Directive 指令与自定义指令</h3>
-
                         <p>
-                            AngularJS有一套完整的、可扩展的、用来帮助web应用开发的指令集，
+                            AngularJS有一套完整的、可扩展的、用来帮助web应用开发的指令集
                         </p>
                         <p>
                             它使得HTML可以转变成“特定领域语言(DSL)<a href="http://book.douban.com/review/4926318/"> Domain-Specific Language。</a>
@@ -215,7 +222,6 @@
                         <p>
                             <a href="http://docs.angularjs.org/guide/directive"> 英文文档</a>  <a href="http://www.angularjs.cn/A00r"> 中文文档</a>
                         </p>
-
                     </section>
 
                     <section>
@@ -227,12 +233,12 @@
                             指令可以做为元素名，属性名，类名，或者注释。下面是一些等效调用myDir指令的例子：
                         </p>
                         <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-                                <div>
-                                <span my-dir="exp"></span>
-                                <span class="my-dir: exp;"></span>
-                                <my-dir></my-dir>
-                                <!-- directive: my-dir exp -->
-                                </div>
+<div>
+    <span my-dir="exp"></span>
+    <span class="my-dir: exp;"></span>
+    <my-dir></my-dir>
+    <!-- directive: my-dir exp -->
+</div>
                         </code></pre>
 
                     </section>
@@ -246,20 +252,20 @@
                             常用指令 : ngapp  ngController   ngClick  ngCloak ngClass ngRepeat
                         </p>
                         <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-                        <div>
-                            <li ng-class="selected"  ng-repeat="item in list">
-                                {{item.name}}
-                            </li>
-                            <li class="ng-class:item.isSelected"  ng-repeat="item in list">
-                                {{item.name}}
-                            </li>
-                            <li ng-class="{selected: $index==selectedIndex}" ng-repeat="item in list">
-                                {{item.name}}
-                            </li>
-                            <li ng-class="{selected: $index==selectedIndex, classname:true == varname}" ng-repeat="item in list">
-                                {{item.name}}
-                            </li>
-                        </div>
+<div>
+    <li ng-class="selected"  ng-repeat="item in list">
+        {{item.name}}
+    </li>
+    <li class="ng-class:item.isSelected"  ng-repeat="item in list">
+        {{item.name}}
+    </li>
+    <li ng-class="{selected: $index==selectedIndex}" ng-repeat="item in list">
+        {{item.name}}
+    </li>
+    <li ng-class="{selected: $index==selectedIndex, classname:true == varname}" ng-repeat="item in list">
+        {{item.name}}
+    </li>
+</div>
                         </code></pre>
 
                     </section>
@@ -291,18 +297,28 @@
                             <li><a href="http://docs.angularjs.org/api/ng.filter:orderBy">orderBy</a></li>
                             <li><a href="http://stackoverflow.com/questions/14733136/angular-js-ng-repeat-filter-by-single-field">filter by object</a></li>
                         </ol>
-                        <li><a href="demo/demo2.html">Demo2  Ngclass ng repeat</a></li>
+
                     </section>
 
                     <section>
-                        <h2>Model Controller Scope View-Model</h2>
+                        <h2>Model Controller Scope ViewModel</h2>
                         <ol>
                             <li><a href="http://docs.angularjs.org/guide/dev_guide.mvc.understanding_model">Model</a> <a href="http://www.angularjs.cn/A00B">中文文档</a></li>
                             <li><a href="http://docs.angularjs.org/guide/dev_guide.mvc.understanding_controller">Controller</a><a href="http://www.angularjs.cn/A00C">中文文档</a></li>
                             <li><a  href="http://docs.angularjs.org/api/ng.filter:orderBy">Scope</a></li>
                             <li><a  href="http://docs.angularjs.org/guide/dev_guide.mvc.understanding_view">View</a><a href="http://www.angularjs.cn/A00D">中文文档</a></li>
                         </ol>
-                        <li><a href="demo/demo3.html">Demo3  ngClass ngRepeat Scope</a></li>
+                        <p><a href="demo/demo3.html">Demo3  ngClass ngRepeat Scope </a></p>
+                    </section>
+
+                    <section>
+                        <h2>Angular's Module 模块</h2>
+
+                        <p><a href="http://docs.angularjs.org/guide/module">Module　模块</a> <a href="http://www.angularjs.cn/A00x">中文文档</a></p>
+                        <p>html ng-app="myApp"</p>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+                            angular.module('MyApp',[]);
+                        </code></pre>
                     </section>
 
                     <section>
@@ -310,11 +326,14 @@
                         <ol>
                             <li><a href="http://liamkaufman.com/blog/2013/05/13/understanding-angularjs-directives-part1-ng-repeat-and-compile/">Understanding AngularJS Directives Part 1: Ng-repeat and Compile</a></li>
                             <li><a href="http://stackoverflow.com/questions/15623698/directive-isolate-scope-with-ng-repeat-scope">Directive isolate scope with ng-repeat scope</a></li>
+                            <li><a href="http://stackoverflow.com/questions/15623698/directive-isolate-scope-with-ng-repeat-scope">Directive isolate scope with ng-repeat scope</a></li>
+                            <li><a href="https://groups.google.com/forum/#!msg/angular/45jNmQucSCE/hL8x48-JfZIJ">AngulaJS directive transclude scope=false?</a></li>
+                            <li><a href="http://stackoverflow.com/questions/13848071/angularjs-2-way-binding-not-working-in-included-template">http://stackoverflow.com/questions/13848071/angularjs-2-way-binding-not-working-in-included-template</a></li>
                         </ol>
                     </section>
 
                     <section>
-                        <h2>自定义指令 </a> </h2>
+                        <h2>高级篇:　自定义指令 Directives </h2>
                         <ol>
                             <li><a href="http://docs.angularjs.org/guide/directive">英文文档</a></li>
                             <li><a href="http://www.angularjs.cn/A00r">中文文档</a></li>
@@ -325,248 +344,137 @@
                     </section>
 
                     <section>
-                        <h2>Angular's MVC 总结</a> </h2>
+                        <h2>Angular world 与 非 Angular world</h2>
+                        <ol>
+                            <li><a href="http://docs.angularjs.org/guide/scope">Scopes </a> <a href="http://docs.angularjs.org/guide/scope">中文文档 </a></li>
+                            <li><a href="http://docs.angularjs.org/guide/scope">$watch </a></li>
+                            <li><a href="http://docs.angularjs.org/guide/scope">$apply </a></li>
+                            <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+var t = setTimeout( function() {
+    $scope.hello++;
+    console.log($scope.hello);
+    $scope.$apply();
+}, 5000);
+
+    //ng.$timeout 或使用angular内置封装的函数
+                            </code></pre>
+
+                            <p><a href="demo/demo4.html">Demo4 $apply,$watch </a></p>
+                        </ol>
+                    </section>
+
+                    <section>
+                        <h2>Angular's MVC 小结</a> </h2>
                         <p><img  src="./resource/mvc.png" alt="Unicorn"></p>
                     </section>
 
                 </section>
 
 				<section>
-					<h2>Works in Mobile Safari</h2>
-					<p>
-						Try it out! You can swipe through the slides and pinch your way to the overview.
-					</p>
+
+                    <section>
+                        <h2>Modules</h2>
+                        <p><img  src="./resource/mvc2.png" alt="Unicorn"></p>
+                    </section>
+
+                    <section>
+                        <h2>创建一个Modules</h2>
+                        <p><img  src="./resource/module1.png" alt="Unicorn"></p>
+                    </section>
+
+                    <section>
+                        <h2>在Module中创建Controller</h2>
+                        <p><img  src="./resource/module2.png" alt="Unicorn"></p>
+                    </section>
+
+                    <section>
+                        <h2>Angular's Router　前端路由</a> </h2>
+
+                        <p><a href="http://docs.angularjs.org/tutorial/step_07">前端路由 与多视图 ngView</a> <a href="http://www.angularjs.cn/A00a">中文文档</a></p>
+                        <p><a href="http://docs.angularjs.org/guide/dev_guide.services.$location">$location 改变URL</a> <a href="http://www.angularjs.cn/A00M">中文文档</a></p>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 10px;">
+var demoApp = angular.module('demoapp', []);
+
+demoApp.config(['$routeProvider', function($routeProvider) {
+$routeProvider.
+    when('/phones', {templateUrl: 'partials/phone-list.html', controller: PhoneListCtrl}).
+    when('/phones/:phoneId', {templateUrl: 'partials/phone-detail.html', controller: PhoneDetailCtrl}).
+    otherwise({redirectTo: '/phones'});
+}]);
+                        </code></pre>
+                        <p><a href="http://net.tutsplus.com/tutorials/html-css-techniques/a-first-look-at-the-history-api/">HTML5 History API</a> </p>
+                    </section>
+
+                    <section>
+                        <h2>Angular's 3D DI　依赖注入</h2>
+
+                        <p><a href="http://docs.angularjs.org/guide/di">Dependency Injection 依赖注入</a> <a href="http://www.angularjs.cn/A00z">中文文档</a></p>
+                        <p><a href="http://docs.angularjs.org/guide/di">使用factory 创建</a> </p>
+                        <p>解决压缩代码变量名改变的问题 </p>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 10px;">
+var MyController = function(renamed$scope, renamedGreeter) {
+...
+}
+MyController.$inject = ['$scope', 'greeter'];
+                        </code></pre>
+
+                    </section>
+
+                    <section>
+                        <h2>Angular's Factory</h2>
+
+                        <p><a href="http://docs.angularjs.org/guide/di">工场方法负责创建AngularJS中的大部分对象。比如指令，服务，过滤器。</a> </p>
+                        <p><a href="http://www.angularjs.cn/A00z">中文文档</a> </p>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 10px;">
+angualar.module('myModule', []).
+config(['depProvider', function(depProvider){
+...
+}]).
+factory('serviceId', ['depService', function(depService) {
+...
+}]).
+directive('directiveName', ['depService', function(depService) {
+...
+}]).
+filter('filterName', ['depService', function(depService) {
+...
+}]).
+run(['depService', function(depService) {
+...
+}]);
+                        </code></pre>
+
+                    </section>
+
 				</section>
 
 				<section>
-					<h2>Marvelous Unordered List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Fantastic Ordered List</h2>
+					<h2>Angular's 学习资源</h2>
 					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
+						<li> <a href="http://www.youtube.com/user/angularjs">YouTube 视频</a>  </li>
+                        <li> <a href="http://www.soku.com/search_video/q_angularjs">Youku </a>  </li>
 					</ol>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
+                <section>
+                    <h2>Angular  FAQ</h2>
+                    <ol>
+                        <li>IE 兼容性 <a href="http://docs.angularjs.org/guide/ie">英文文档</a> <a href="http://www.angularjs.cn/A00v">中文文档</a></li>
+                        <li>SEO <a href="http://www.yearofmoo.com/2012/11/angularjs-and-seo.html">yearofmoo 英文文档</a> </li>
+                    </ol>
+                </section>
 
-						For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  For those of you who like that sort of thing.
-						  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
-
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=cube#/transitions">Cube</a> -
-						<a href="?transition=page#/transitions">Page</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a> -
-						<a href="?transition=linear#/transitions">Linear</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?#/transitions">Default</a>
-					</p>
-				</section>
-
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						Reveal.js comes with a few themes built in: <br>
-						<a href="?theme=sky#/themes">Sky</a> -
-						<a href="?theme=beige#/themes">Beige</a> -
-						<a href="?theme=simple#/themes">Simple</a> -
-						<a href="?theme=serif#/themes">Serif</a> -
-						<a href="?theme=night#/themes">Night</a> -
-						<a href="?#/themes">Default</a>
-					</p>
-					<p>
-						<small>
-							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
-						</small>
-					</p>
-				</section>
-
-				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the background.
-					</p>
-				</section>
-
-				<section data-state="customevent">
-					<h2>Custom Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
-				<section>
-					<section data-background="#007777">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#007777"</code> on a slide to change the full page background to the given color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Repeated Image Backgrounds</h2>
-						<pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-				</section>
-
-				<section data-transition="linear" data-background="#4d7e65" data-background-transition="slide">
-					<h2>Background Transitions</h2>
-					<p>
-						Pass reveal.js the <code>backgroundTransition: 'slide'</code> config argument to make backgrounds slide rather than fade.
-					</p>
-				</section>
-
-				<section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
-					<h2>Background Transition Override</h2>
-					<p>
-						You can override background transitions per slide by using <code>data-background-transition="slide"</code>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) ) {
-        node.className += ' roll';
-      }
-    };
-  }
-}
-					</code></pre>
-					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
-
-				<section>
-					<section>
-						<h2>Fragmented Views</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<ol>
-							<li class="fragment"><code>any type</code></li>
-							<li class="fragment"><em>of view</em></li>
-							<li class="fragment"><strong>fragments</strong></li>
-						</ol>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's a few styles of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-green">highlight-green</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section>
-				</section>
-
-				<section>
-					<h2>Spectacular image!</h2>
-					<a class="image" href="http://lab.hakim.se/meny/" target="_blank">
-						<img width="320" height="299" src="http://s3.amazonaws.com/hakim-static/portfolio/images/meny.png" alt="Meny">
-					</a>
-				</section>
-
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
-					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
-					<script>
-						document.getElementById('slideshare').attributeName = 'allowfullscreen';
-					</script>
-				</section>
-
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take distracting slides off the screen
-						during a presentation.
-					</p>
-				</section>
-
-				<section>
-					<h2>Stellar Links</h2>
-					<ul>
-						<li><a href="http://slid.es">Try the online editor</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a></li>
-						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
-					</ul>
-				</section>
+                <section>
+                    <h2>Enhanced Animation in AngularJS</h2>
+                    <ol>
+                        <li> <a href="http://www.yearofmoo.com/2013/04/animation-in-angularjs.html">ng-animate Animation in AngularJS</a> </li>
+                        <li> <a href="http://www.nganimate.org/">AngularJS with NgAnimate</a> </li>
+                    </ol>
+                </section>
 
 				<section>
 					<h1>THE END</h1>
-					<h3>BY Hakim El Hattab / hakim.se</h3>
+					<h3>BY JinWYP / <a href="http://www.angulargirl.com/">Angulargirl.com</a> </h3>
 				</section>
 
 			</div>

@@ -61,20 +61,31 @@
 
 
         <div ng-controller="PostCtrl">
-            <input ng-model="nametext">
-            <div ng-repeat="post in posts | filter:nametext" ng-mouseenter="showdiv()" ng-mouseleave="hidediv()">
-                <div>Show Name:{{ post.tag }}</div>
-                <div ng-show="cssshow">Mouseover show</div>
-            </div>
+            <input ng-model="firstName">
+            <input ng-model="lastName">
+
+            <div>Show Name:{{ fullName }}</div>
+
         </div>
+
+        <a href="http://stackoverflow.com/questions/11952579/watch-multiple-scope-attributes-in-angularjs">$watch同时监听多个属性</a>
+
+        <h2>---------华丽分割线-------------------</h2>
 
         <div ng-controller="PostCtrl2">
-            <h3>--------------------华丽的分割线--------------------------------</h3>
-            <div id="demo3" ng-repeat="post in posts"  ng-class="{liselected: $index == cssSelected}">
-                <li ng-click="changecolor($index)">Show Name:{{ post.name }}</li>
+            <div>Show Message:{{ message }}</div>
+            <button class="btn-large" ng-click="showmessage()">显示信息</button>
 
-            </div>
+            <div><a href="http://jimhoskins.com/2012/12/17/angularjs-and-apply.html">angularjs-and-apply</a> </div>
         </div>
+
+        <h2>---------华丽分割线-------------------</h2>
+    <div ng-controller="PostCtrl3">
+        <div>Show Message:{{ message }}</div>
+        <button class="btn-large" ng-click="showmessage()">显示信息</button>
+        <div><a href="http://docs.angularjs.org/api/ng.$timeout">$timeout </a> </div>
+
+    </div>
 
 </div> <!-- /container -->
 
@@ -87,41 +98,52 @@
 
 <script>
 
-/*    jQuery(function($){
-        $("#demo3 li").click(function(){
-            $("#demo3 li").removeClass("liselected");
-            $(this).addClass("liselected");
-        });
-    });*/
-
 
     angular.module('MyApp',[]);
 
     function PostCtrl($scope) {
-        $scope.posts = [{id: 1, name: 'tech'},
-            {id: 2, name: 'news'},
-            {id: 3, name: 'sports'},
-            {id: 4, name: 'health'}];
+        $scope.firstName = ''
+        $scope.lastName = '';
+        $scope.fullName = '';
+        $scope.$watch('firstName + lastName', function() {
+            $scope.fullName = $scope.firstName + ' ' + $scope.lastName;
+        });
 
-        $scope.cssshow = false;
-        $scope.showdiv = function(){
-            $scope.cssshow = true;
-        }
-        $scope.hidediv = function(){
-            $scope.cssshow = false;
+        //Beginning with AngularJS 1.1.5 you can use $watchCollection:
+/*        $scope.$watchCollection('[item1, item2]', function(newValues){
+            // do stuff here
+            // newValues contains the new values of the observed collection array
+        });*/
+    }
+
+    function PostCtrl2($scope) {
+        $scope.message = "Waiting 2000ms for update";
+        $scope.showmessage = function(){
+            setTimeout(function () {
+                $scope.message = "Timeout called!";
+                // 这里是非AngularJS 的世界, unaware of update to $scope
+//                $scope.$apply();
+            }, 2000);
+
+/*            setTimeout(function () {
+                $scope.$apply(function () {
+                    $scope.message = "Timeout called!";
+                });
+            }, 2000);*/
+
         }
     }
 
-    function PostCtrl2($scope ) {
-        $scope.posts = [{id: 1, name: 'tech'},
-            {id: 2, name: 'news'},
-            {id: 3, name: 'sports'},
-            {id: 4, name: 'health'}];
-
-        $scope.changecolor = function(index){
-            $scope.cssSelected = index;
+    function PostCtrl3($scope, $timeout) {
+        $scope.message = "Waiting 2000ms for update";
+        $scope.showmessage = function(){
+            $timeout(function() {
+                $scope.message = "Timeout called!";
+            }, 2000);
         }
     }
+
+
 </script>
 
 </body>
