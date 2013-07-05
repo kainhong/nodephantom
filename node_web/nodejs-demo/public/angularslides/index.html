@@ -103,6 +103,17 @@
                         </aside>
 					</section>
 
+                    <section>
+                        <h2>Angular 设计原则</h2>
+                        <a href="http://www.youtube.com/watch?v=HCR7i5F5L8c" class="image navigate-down">
+                            <img  src="./resource/angulartemplate.png" alt="Design Principles">
+                        </a>
+
+                        <aside class="notes">
+                            真正为设计师和开发者根据实际操作服务的框架, 可以让设计师完全脱离js , 仅仅在html中添加一些标签就可以实现交互
+                        </aside>
+                    </section>
+
 					<section>
 						<h2><a href="http://backbonejs.org/">VS Backbone</a></h2>
 						<p>MVC or MRV </p>
@@ -207,6 +218,13 @@
                             <p><a href="http://docs.angularjs.org/guide/dev_guide.templates.databinding">单向与双向绑定</a> </p>
                             <p><a href="http://www.angularjs.cn/A00H">中文文档</a></p>
                             <img  src="./resource/Two_Way_Data_Binding.png" alt="Unicorn">
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Data Binding 数据绑定 </h2>
+                        <ul>
+                            <img  src="./resource/Two_Way_Data_Binding2.png" alt="Unicorn">
                         </ul>
                     </section>
 
@@ -420,6 +438,21 @@ MyController.$inject = ['$scope', 'greeter'];
                     </section>
 
                     <section>
+                        <h2>Angular's 3D DI　依赖注入</h2>
+
+                        <p><a href="http://docs.angularjs.org/guide/di">Dependency Injection 依赖注入</a> <a href="http://www.angularjs.cn/A00z">中文文档</a></p>
+                        <p><a href="http://docs.angularjs.org/guide/di">使用factory 创建</a> </p>
+                        <p>解决压缩代码变量名改变的问题 </p>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 10px;">
+                            var MyController = function(renamed$scope, renamedGreeter) {
+                            ...
+                            }
+                            MyController.$inject = ['$scope', 'greeter'];
+                        </code></pre>
+
+                    </section>
+
+                    <section>
                         <h2>Angular's Factory</h2>
 
                         <p><a href="http://docs.angularjs.org/guide/di">工场方法负责创建AngularJS中的大部分对象。比如指令，服务，过滤器。</a> </p>
@@ -447,6 +480,12 @@ run(['depService', function(depService) {
 
 				</section>
 
+                <section>
+                    <h1>Angular Test</h1>
+                    <p><a href="http://docs.angularjs.org/guide/dev_guide.e2e-testing">端到端测试</a> </p>
+                    <p><a href="http://www.angularjs.cn/A00E">中文文档</a> </p>
+                </section>
+
 				<section>
 					<h2>Angular's 学习资源</h2>
 					<ol>
@@ -458,6 +497,8 @@ run(['depService', function(depService) {
                         <li> <a href="http://www.angularjstutorial.com/">AngularJS Tutorial</a>  </li>
                         <li> <a href="http://www.egghead.io/">egghead.io</a>  </li>
                         <li> <a href="http://pluralsight.com/training/courses/TableOfContents?courseName=angularjs-fundamentals&highlight=joe-eames_angularjs-fundamentals-m1-intro*2,3,6,4,5!joe-eames_angularjs-fundamentals-m6-testing#angularjs-fundamentals-m1-intro">AngularJS Fundamentals </a>  </li>
+                        <li> <a href="http://www.angularjs.cn/">Angular 中文社区</a>  </li>
+                        <li> <a href="http://www.angulargirl.com/">Angular girl</a>  </li>
                     </ol>
 				</section>
                 <section>
@@ -467,6 +508,8 @@ run(['depService', function(depService) {
                         <li> <a href="https://github.com/angular/angular-seed">angular-seed </a> </li>
                         <li> <a href="https://github.com/OClement/angular-seed-coffeescript">angular-seed-coffeescript </a>  </li>
                         <li> <a href="https://github.com/rsvalerio/grunt-angular-seed">grunt-angular-seed </a>  </li>
+                        <li> <a href="http://briantford.com/blog/angular-socket-io.html">AngularJS Real Time App with Socket.IO</a>  </li>
+                        <li> <a href="http://ngmodules.org/">ngmodules.org</a></li>
                     </ol>
                 </section>
 
@@ -483,6 +526,7 @@ run(['depService', function(depService) {
                     <ol>
                         <li> <a href="http://www.yearofmoo.com/2013/04/animation-in-angularjs.html">ng-animate Animation in AngularJS</a> </li>
                         <li> <a href="http://www.nganimate.org/">AngularJS with NgAnimate</a> </li>
+                        <li><a href="demo/demo5.html">Demo5 数据绑定</a></li>
                     </ol>
                 </section>
 
