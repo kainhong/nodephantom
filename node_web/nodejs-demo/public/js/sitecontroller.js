@@ -22,6 +22,7 @@ var SiteSchema = new mongoose.Schema({
     }
 });
 var InvcnSiteModel = mongoose.model('Site', SiteSchema);
+var newsite = new InvcnSiteModel();
 phantomapp.controller(site.c);
 
 phantomapp.factory('modelSite', function(){
