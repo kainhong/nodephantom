@@ -43,7 +43,8 @@
 					<h1><img src="./resource/AngularJS-large.png"> </h1>
 					<h3>HTML enhanced for web apps!</h3>
                     <h3>Easy to build SPA Single Page App!</h3>
-                    <h3>创建丰富的单页面程序</h3>
+                    <h3>创建丰富的单页面应用</h3>
+                    <p></p>
 					<p>
 						<small>Created by <a href="http://weibo.com/jinwyp">@JinWYP</a> / <a href="https://twitter.com/jinwyp">Twitter</a>/ <a href="http://weibo.com/jinwyp">新浪微博</a></small>
                     </p>
@@ -51,7 +52,7 @@
 						<small>一个写代码的产品经理 <a href="http://www.freair.com">Blog</a></small>
 					</p>
                     <p>
-                         <a href="http://www.angulargirl.com">Angular Girl</a>
+                         <a href="http://www.angulargirl.com">Angular Girl 社区</a>
                     </p>
 
                     <aside class="notes">
@@ -89,31 +90,17 @@
                     </section>
 
 					<section>
-						<h2>传统 </h2>
-						<p>目前: 后端语言PHP　＋ JS + Html  </p>  <br/>
-						<p>通常是 后端语言 渲染HTML模板 </p><br/>
-                        <p>后端语言 处理页面URL 路由请求 </p><br/>
-                        <p>如 CodeIgniter MVC 的View模板  </p>
+						<h2>传统网站架构 </h2>
+						<p>后端语言PHP + JS + Html</p><br/>
+						<p>通常是后端语言 "渲染HTML模板" </p><br/>
+                        <p>后端语言 处理页面"URL路由请求" </p><br/>
+                        <p>如 CodeIgniter MVC 的View模板 </p>
 
 						<a href="http://www.youtube.com/watch?v=HCR7i5F5L8c" class="image navigate-down">
 							<img width="40" height="40" src="./resource/arrow.png" alt="Down arrow">
 						</a>
 
                     </section>
-
-					<section>
-						<h2>Angular 设计原则</h2>
-                        <a href="http://www.youtube.com/watch?v=HCR7i5F5L8c" class="image navigate-down">
-                            <img  src="./resource/designprinciples.png" alt="Design Principles">
-                        </a>
-                        <a href="http://www.youtube.com/watch?v=HCR7i5F5L8c" >Google I/O 2013 - Design Decisions in AngularJS</a>
-                        <a href="http://v.youku.com/v_show/id_XNTY1NzcwMDg0.html" >优酷</a>
-
-
-                        <aside class="notes">
-                            真正为设计师和开发者根据实际操作服务的框架, 可以让设计师完全脱离js , 仅仅在html中添加一些标签就可以实现交互
-                        </aside>
-					</section>
 
                     <section>
                         <h2>Angular 设计原则</h2>
@@ -126,27 +113,95 @@
                         </aside>
                     </section>
 
+                    <section>
+                        <h2>Angular 设计原则</h2>
+                        <a href="http://www.youtube.com/watch?v=HCR7i5F5L8c" class="image navigate-down">
+                            <img  src="./resource/designprinciples.png" alt="Design Principles">
+                        </a>
+                        <a href="http://www.youtube.com/watch?v=HCR7i5F5L8c" >Google I/O 2013 - Design Decisions in AngularJS</a>
+                        <a href="http://v.youku.com/v_show/id_XNTY1NzcwMDg0.html" >优酷</a>
+
+
+                        <aside class="notes">
+                            真正为设计师和开发者根据实际操作服务的框架, 可以让设计师完全脱离js , 仅仅在html中添加一些标签就可以实现交互
+                        </aside>
+                    </section>
+
 					<section>
 						<h2><a href="http://backbonejs.org/">VS Backbone</a></h2>
-						<p>MVC or MRV </p>
+						<p>MVC or MVR </p>
                         <p>Router / Model & Collection / View</p>
 
 					</section>
 
+                    <section>
+                        <h2><a href="http://backbonejs.org/">VS Backbone</a></h2>
+                        <p>Backbone View </p>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+var Bookmark = Backbone.View.extend({
+    template: _.template(…),
+    render: function() {
+        this.$el.html(this.template(this.model.attributes));
+        return this;
+    },
+    events: {
+        "dblclick"                : "open",
+        "click .icon.doc"         : "select"
+    },
+    open: function() {
+        window.open(this.model.get("viewer_url"));
+    },
+    select: function() {
+        this.model.set({selected: true});
+    }
+});
+                        </code></pre>
+
+                    </section>
+
 					<section>
-                        <h2> <a href="http://emberjs.com">VS Ember.js or Other Framework</a> </h2>
+                        <h2> <a href="http://emberjs.com">VS Ember.js</a> </h2>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+App = Ember.Application.create();
+
+App.Person = Ember.Object.extend({
+    firstName: null,
+    lastName: null,
+
+    fullName: function() {return this.get('firstName') + " " + this.get('lastName');
+    }.property('firstName', 'lastName')
+});
+
+App.IndexRoute = Ember.Route.extend({
+    model: function() {
+    var people = [ App.Person.create({firstName: "Tom",lastName: "Dale"}),
+                    App.Person.create({firstName: "Yehuda",lastName: "Katz"}) ];
+    return people;
+    }
+});
+                        </code></pre>
+
+					</section>
+
+                    <section>
+                        <h2> <a href="http://emberjs.com">MVR or MVVM or MOVE</a> </h2>
                         <p>MOVE，即 Models（模型）、Operations（操作）、Views（视图）、Events（事件）</p>
 
                         <a class="test" href="http://www.36kr.com/p/126957.html">
                             <img width="500" height="500" src="./resource/move.jpg" alt="Unicorn">
                         </a>
 
+                    </section>
+
+                    <section>
+                        <h2> <a href="http://web.itivy.com/article-763-1.html">Future of web frontend?</a> </h2>
+
+
                         <a class="test" href="https://groups.google.com/forum/#!msg/polymer-dev/4RSYaKmbtEk/uYnY3900wpIJ">
                             Will MDV become a standard?
                         </a>
 
-
-					</section>
+                    </section>
 
                     <section>
                         <h2> <a href="http://emberjs.com">与其他库</a> </h2>
