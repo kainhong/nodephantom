@@ -13,10 +13,26 @@ angular.module('myApp.directives', []).
 
 
 angular.module('myApp.directives', [])
-    .directive('fundooRating', function () {
+    .directive('addMenu', function () {
         return {
-            restrict: 'A',
+            restrict: 'EA',
+            templateUrl: 'tpl_demo10.html',
+            scope: {
+                menulist : '=datamodel'
+            },
             link: function (scope, elem, attrs) {
-                console.log("Recognized the fundoo-rating directive usage");
+                scope.newmemu = {id:100, name:"" };
+                scope.csshide = false;
+
+                scope.clickAddMenuButton = function(){
+                    scope.csshide = true;
+                };
+
+                scope.clickSaveMenuButton = function(){
+                    scope.csshide = false;
+                    scope.menulist.push(angular.copy(scope.newmemu));
+                };
+                console.log(scope.menulist);
             }
-        }
+        };
+    });

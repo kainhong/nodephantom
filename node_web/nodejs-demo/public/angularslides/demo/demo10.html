@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="MyApp">
+<html lang="en" ng-app="myApp">
 <head>
     <meta charset="utf-8">
     <title>Angular JS 快速入门</title>
@@ -68,38 +68,16 @@
 <div class="container">
 
 
-        <div ng-controller="PostCtrl">
+        <div ng-controller="MyCtrl1">
             <ul class="nav nav-pills menu">
-                <li class="active">
-                    <a href="#">Menu1</a>
+                <li ng-repeat="menu in menulist" class="active">
+                    <a href="#">{{ menu.name }}</a>
                 </li>
-                <li >
-                    <a href="#">Menu2</a>
-                </li>
-                <li >
-                    <a href="#">Menu3</a>
-                </li>
-                <li >
-                    <a href="#">Menu4</a>
-                </li>
-                <li >
-                    <button class="btn btn-primary">Add Menu</button>
-                    <form class="form-horizontal">
-                        <div class="control-group">
-                            <label class="control-label" for="inputMenu">Menu Name</label>
-                            <div class="controls">
-                                <input type="text" id="inputMenu" placeholder="Menu Name">
-                            </div>
-                            <button type="submit" class="btn">Save</button>
-                        </div>
-                    </form>
-                </li>
+
+                <li add-menu datamodel="menulist"></li>
 
             </ul>
-            <input ng-model="firstName">
-            <input ng-model="lastName">
 
-            <div>Show Name:{{ fullName }}</div>
 
         </div>
 
