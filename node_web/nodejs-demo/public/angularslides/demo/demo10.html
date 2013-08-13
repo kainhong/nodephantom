@@ -27,7 +27,7 @@
         }
 
         .menu li{
-            width: 100px;
+            width: 120px;
         }
     </style>
     <link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
@@ -69,15 +69,12 @@
 
 
         <div ng-controller="MyCtrl1">
-            <ul class="nav nav-pills menu">
-                <li ng-repeat="menu in menulist" class="active">
-                    <a href="#">{{ menu.name }}</a>
+            <ul class="nav nav-pills menu" >
+                <li ng-repeat="menu in menulist" show-menu datamodel="menu" datalistmodel="menulist" class="active">
                 </li>
-
                 <li add-menu datamodel="menulist"></li>
 
             </ul>
-
 
         </div>
 

@@ -10,7 +10,7 @@ angular.module('myApp.controllers', []).
             {id:3, name:"Menu33"}
         ];
 
-        console.log($scope);
+
 
   })
   .controller('MyCtrl2', [function() {
