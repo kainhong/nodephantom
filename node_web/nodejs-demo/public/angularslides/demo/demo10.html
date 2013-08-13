@@ -70,10 +70,9 @@
 
         <div ng-controller="MyCtrl1">
             <ul class="nav nav-pills menu" >
-                <li ng-repeat="menu in menulist" show-menu datamodel="menu" datalistmodel="menulist" class="active">
+                <li ng-repeat="menu in menulist" show-menu datamodel="menu" datalistmodel="menulist" index="$index" class="active">
                 </li>
-                <li add-menu datamodel="menulist"></li>
-
+                <li add-menu maxmemu="5"></li>
             </ul>
 
         </div>

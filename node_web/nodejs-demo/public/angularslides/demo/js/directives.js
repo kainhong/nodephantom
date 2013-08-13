@@ -10,11 +10,13 @@ angular.module('myApp.directives', [])
             templateUrl: 'tpl_demo10_edit.html',
             scope: {
                 menulist : '=datalistmodel',
-                menu : '=datamodel'
+                menu : '=datamodel',
+                index : '=',
             },
+
             link: function (scope, element, attrs) {
                 scope.cssshowmenu = true;
-
+                console.log(scope.index);
                 scope.editMenuButton = function(){
                     scope.cssshowmenu = false;
                 };
@@ -45,8 +47,10 @@ angular.module('myApp.directives', [])
             templateUrl: 'tpl_demo10_add.html',
             scope: false,
             link: function (scope, elem, attrs) {
+                var maxmenu = Number(attrs.maxmemu);
                 scope.newmemu = {id:100, name:"" };
                 scope.cssshowmenu = true;
+                scope.cssshowbox = true;
 
                 scope.addMenuButton = function(){
                     scope.cssshowmenu = false;
@@ -55,6 +59,9 @@ angular.module('myApp.directives', [])
                 scope.saveNewMenuButton = function(){
                     scope.cssshowmenu = true;
                     scope.menulist.push(angular.copy(scope.newmemu));
+                    if(scope.menulist.length >= maxmenu){
+                        scope.cssshowbox = false;
+                    }
                 };
 
 
