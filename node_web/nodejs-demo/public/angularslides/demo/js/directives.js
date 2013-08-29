@@ -47,6 +47,7 @@ angular.module('myApp.directives', [])
             scope: false,
             link: function (scope, elem, attrs) {
                 scope.maxmenu = Number(attrs.maxmemu);
+                console.log(Number(attrs.maxmemu));
                 scope.newmemu = {id:100, name:"" };
                 scope.cssshowmenu = true;
                 scope.cssshowbox = true;

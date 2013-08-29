@@ -63,8 +63,8 @@
         <div ng-controller="PostCtrl">
             <input ng-model="nametext">
             <div ng-repeat="post in posts | filter:nametext" ng-mouseenter="showdiv()" ng-mouseleave="hidediv()">
-                <div>Show Name:{{ post.tag }}</div>
-                <div ng-show="cssshow">Mouseover show</div>
+                <div>Show Name:{{ post.tag }} <span ng-show="css.show">Mouseover show</span></div>
+
             </div>
         </div>
 
@@ -103,12 +103,18 @@
             {id: 3, name: 'sports'},
             {id: 4, name: 'health'}];
 
-        $scope.cssshow = false;
+        $scope.css = {show : false};
+
         $scope.showdiv = function(){
-            $scope.cssshow = true;
+            this.css = {show:true};
+//            this.css.show = true;
+
+            console.log(this.css.show,$scope.css.show);
         }
         $scope.hidediv = function(){
-            $scope.cssshow = false;
+            this.css = {show:false};
+//            this.css.show = false;
+            console.log(this.css.show,$scope.css.show);
         }
     }
 
